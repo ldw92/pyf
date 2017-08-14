@@ -1,0 +1,422 @@
+<!DOCTYPE html >
+<html ng-app="myapp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pantry's Best 派送喜悦</title>
+    <link rel="stylesheet" href="css/reset.css" >
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+   	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
+    <script src="js/resp.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.js" ></script>
+    <script src="js/faskclick.js"></script>
+</head>
+<body ng-controller="cont">
+    <div ng-view></div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js" ></script>
+    <script src="js/swiper.jquery.js"></script>
+    <script src="js/swiper.animate1.0.2.min.js" ></script>
+    <script src="js/fly.js"></script>
+
+    <script>
+
+      FastClick.attach(document.body);
+      var app = angular.module("myapp", ['ngRoute'], RouteConfig);
+      function RouteConfig($routeProvider) {
+        $routeProvider
+          .when('/', {
+            templateUrl: "tpl/index.html"
+          })
+          .when('/goods', {
+            templateUrl: "tpl/goods.html"
+          })
+          .when('/cart', {
+            templateUrl: "tpl/cart.html"
+          })
+          .when('/login', {
+            templateUrl: "tpl/login.html"
+          })
+      }
+       app.directive('direc',function(){
+                // 1.为什么返回?
+              return {
+                   restrict:'AE', //四种都可以渲染
+                   replace : true,
+                    compile:function(){
+                      //轮播图
+                      var mySwiper = new Swiper ('#swiper-container', {
+                                autoplay: 1000,
+                                pagination : '.swiper-pagination',
+                                paginationType : 'bullets',
+                         });
+                     //选项卡
+                    var tabsSwiper = new Swiper('#swiper-container1',{
+                            speed:500,
+                            onSlideChangeStart: function(){
+                                 $(".tabs .active").removeClass('active');
+                                 $(".tabs .select").eq(tabsSwiper.activeIndex).addClass('active');
+                               }
+                             })
+                             $(".tabs .select").on('touchstart mousedown',function(e){
+                               e.preventDefault();
+                               tabsSwiper.stopAutoplay();
+                               $(".tabs .active").removeClass('active');
+                               $(this).addClass('active');
+                               tabsSwiper.slideTo( $(this).index()-1,1000,false);
+
+                             })
+                             $(".tabs .select").click(function(e){
+                               e.preventDefault()
+                             })
+
+                             //选项卡结束
+                          }
+                      };
+                    });
+ 	   app.controller("cont",function($scope,$timeout,$http){
+            // 1
+            $http({
+            	method: "POST",
+            	url: "./php/index.php",
+            	headers: {
+            		'Content-Type': 'application/x-www-form-urlencoded'
+            	},
+            	transformRequest: function(data) {
+
+            		var str = "";
+            		for(var n in data) {
+            			str += n + "=" + data[n] + "&";
+            		}
+            		str = str.slice(0, str.length - 1);
+
+            		return str;
+
+            	}
+
+            }).then(function(succ) {
+            	$scope.data1 = succ.data;
+            	angular.forEach($scope.data1, function(item, index) {
+
+            	});
+
+            }, function(err) {});
+          //2
+          $http({
+          	method: "POST",
+          	url: "./php/index1.php",
+          	headers: {
+          		'Content-Type': 'application/x-www-form-urlencoded'
+          	},
+          	transformRequest: function(data) {
+          		var str = "";
+          		for(var n in data) {
+          			str += n + "=" + data[n] + "&";
+          		}
+          		str = str.slice(0, str.length - 1);
+
+          		return str;
+
+          	}
+
+          }).then(function(succ) {
+			$scope.data2 = succ.data;
+          	angular.forEach($scope.data2, function(item, index) {
+
+          	});
+
+          }, function(err) {});
+          //3
+          $http({
+          	method: "POST",
+          	url: "./php/index2.php",
+          	headers: {
+          		'Content-Type': 'application/x-www-form-urlencoded'
+          	},
+          	transformRequest: function(data) {
+          		var str = "";
+          		for(var n in data) {
+          			str += n + "=" + data[n] + "&";
+          		}
+          		str = str.slice(0, str.length - 1);
+          		return str;
+
+          	}
+
+          }).then(function(succ) {
+
+          	$scope.data3 = succ.data;
+          	angular.forEach($scope.data3, function(item, index) {
+          		item.num = 0;
+          		item.price = -(-(item.price));
+
+          	});
+
+          }, function(err) {});
+          //4
+            $http({
+            	method: "POST",
+            	url: "./php/index3.php",
+            	headers: {
+            		'Content-Type': 'application/x-www-form-urlencoded'
+            	},
+            	transformRequest: function(data) {
+
+            		var str = "";
+            		for(var n in data) {
+            			str += n + "=" + data[n] + "&";
+            		}
+            		str = str.slice(0, str.length - 1);
+
+            		return str;
+
+            	}
+
+            }).then(function(succ) {
+				$scope.data4 = succ.data;
+            	angular.forEach($scope.data4, function(item, index) {
+            		item.num = 0;
+            		item.price = -(-(item.price));
+
+            	});
+
+            }, function(err) {});
+            //5
+           $http({
+           	method: "POST",
+           	url: "./php/index4.php",
+           	headers: {
+           		'Content-Type': 'application/x-www-form-urlencoded'
+           	},
+           	transformRequest: function(data) {
+
+           		var str = "";
+           		for(var n in data) {
+           			str += n + "=" + data[n] + "&";
+           		}
+           		str = str.slice(0, str.length - 1);
+           		// console.log(str);
+           		return str;
+
+           	}
+
+           }).then(function(succ) {
+           	console.log(succ.data);
+           	$scope.data6 = succ.data;
+           	angular.forEach($scope.data6, function(item, index) {
+
+           	});
+
+           }, function(err) {
+           	 console.log(err);
+           });
+           //6
+          $http({
+          	method: "POST",
+          	url: "./php/index5.php",
+          	headers: {
+          		'Content-Type': 'application/x-www-form-urlencoded'
+          	},
+          	transformRequest: function(data) {
+
+          		var str = "";
+          		for(var n in data) {
+          			str += n + "=" + data[n] + "&";
+          		}
+          		str = str.slice(0, str.length - 1);
+          		// console.log(str);
+          		return str;
+
+          	}
+
+          }).then(function(succ) {
+          	console.log(succ.data);
+          	$scope.data5 = succ.data;
+          	angular.forEach($scope.data5, function(item, index) {
+          		item.num = 0;
+          		item.price = -(-(item.price));
+          	});
+
+          }, function(err) {
+          	console.log(err);
+          });
+
+          $scope.set = function(goodsId, bool, i) {
+          	if(i == 3) {
+          		angular.forEach($scope.data3, function(item, index) {
+          			if(goodsId == item.goodsId) {
+          				if(bool) {
+          					if(item.num == 0) {
+          						item.num = 1;
+          						$scope.cart.push(item);
+          					} else {
+          						item.num++;
+          					}
+          				} else {
+          					item.num--;
+          					item.num = item.num <= 0 ? 0 : item.num;
+
+          				}
+          			}
+          		})
+
+          	}
+
+          	if(i == 4) {
+          		angular.forEach($scope.data4, function(item, index) {
+          			if(goodsId == item.goodsId) {
+          				if(bool) {
+          					if(item.num == 0) {
+          						item.num = 1;
+          						$scope.cart.push(item);
+          					} else {
+          						item.num++;
+          					}
+          				} else {
+          					item.num--;
+          					item.num = item.num <= 0 ? 0 : item.num;
+
+          				}
+          			}
+          		})
+
+          	}
+
+          	if(i == 5) {
+          		angular.forEach($scope.data5, function(item, index) {
+          			if(goodsId == item.goodsId) {
+          				if(bool) {
+          					if(item.num == 0) {
+          						item.num = 1;
+          						$scope.cart.push(item);
+          					} else {
+          						item.num++;
+          					}
+          				} else {
+          					item.num--;
+          					item.num = item.num <= 0 ? 0 : item.num;
+
+          				}
+          			}
+          		})
+
+          	}
+          }
+		  $scope.cart = [];
+
+          $scope.cartSet = function(bool, index){
+          	var i = index;
+          	angular.forEach($scope.cart, function(item, index) {
+
+          		if(i == index) {
+
+          			if(bool) {
+          				if(item.num == 0) {
+          					item.num = 1;
+          				} else {
+          					item.num++;
+          				}
+          			} else {
+          				item.num--;
+          				item.num = item.num <= 0 ? 0 : item.num;
+          			}
+          		}
+
+          	})
+          }
+
+          $scope.$watch("data3",function(){
+              $scope.allPrice=0;
+                angular.forEach($scope.cart,function(item,index){
+                  $scope.allPrice+=item.num*item.price;
+                    if(item.num<=0){
+                        $scope.cart.splice(index,1);
+
+                    }
+                 })
+
+              },true);
+
+              $scope.$watch("data4",function(){
+                $scope.allPrice=0;
+                  angular.forEach($scope.cart,function(item,index){
+                    $scope.allPrice+=item.num*item.price;
+                      if(item.num<=0){
+                          $scope.cart.splice(index,1);
+
+                      }
+                   })
+
+                },true);
+                $scope.$watch("data5",function(){
+                  $scope.allPrice=0;
+                    angular.forEach($scope.cart,function(item,index){
+                      $scope.allPrice+=item.num*item.price;
+                        if(item.num<=0){
+                            $scope.cart.splice(index,1);
+                        }
+                    })
+                  },true);
+
+			/*$scope.$watch("cart",function(){
+				  	var oL=localStorage;
+          			$scope.newCart=[];
+	      			  angular.forEach($scope.cart,function(item,index){
+	      			      console.log(item);
+	      			  	if(newCart.length==0){
+	      			  	  $scope.newCart.push(item)
+	      			  	}else{
+	      			  		if(newCart.indexOf(item)==-1){
+
+                                $scope.newCart.push(item)
+
+	      			  		}
+	      			  	}
+
+                          var k=oL.key(index);
+                          var val=oL.getItem(k);
+
+                          console.log($scope.newCart);
+				  },true)})*/
+
+              //特效
+            $scope.fly=function(num,i){
+              angular.forEach($scope.data+"i",function(item,index){
+                  if(i==3){
+                    var flyer = $('<img class="u-flyer" src="'+$scope.data3[num].img+'">');
+                  }
+                  if(i==4){
+                      var flyer = $('<img class="u-flyer" src="'+$scope.data4[num].img+'">');
+                  }
+                  if(i==5){
+                    var flyer = $('<img class="u-flyer" src="'+$scope.data5[num].img+'">');
+                  }
+
+                        var top = $(window).scrollTop();
+                        var dh = event.pageY;
+                        var newh = dh - top;
+                        var oDiv = $('#msg').offset();
+                        var newdh = oDiv.top - top;
+                        flyer.fly({
+                            start: {
+                                left: event.pageX,
+                                top: newh,
+
+                            },
+                            end: {
+                                left: oDiv.left,
+                                top: newdh,
+                                width: 0,
+                                height: 0
+                            }
+                        });
+                });
+            }
+  		})
+
+ 	</script>
+</body>
+</html>

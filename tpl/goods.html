@@ -1,0 +1,203 @@
+<div direc></div>
+	<div id="wrap">
+			<!--导航开始-->
+				<nav class="navbar navbar-default navbar-fixed-top"
+				style="margin-bottom:0;">
+			  <div class="container con1">
+
+			    <div class="navbar-header" id="mobi-navbar-head">
+			    	<a href="#" class="fl">
+			    		<span>未登录</span>
+			    	</a>
+			      	<a class="navbar-brand fl" href="/" style="width: 68%;margin: 0 2%;">
+			      		<img src="img/logo20170614-dbfa07700eda6a67fced248728a03f08.png" >
+			      		<p  class="mb-locale-icon " style="display:inline-block;">English</p>
+			      	</a>
+
+			      	<a href="#" class=" fr" style="width:14%;text-align:right;
+			      		margin-left:-4%;margin-top:4%;">
+			      		<img src="img/tel.png" style="max-height:31px;width:31px;transform: rotateY(180deg);margin:0 auto;">
+			      	</a>
+			    </div>
+
+			  </div>
+			</nav>
+				<div id="contrast" class="tabs">
+				<div class="select1 fl sel">
+					<a id="btn1"  href="#/" class="default">首页</a>
+				</div>
+				<div class="select2 fl sel select active">
+					<a id="btn2"  href="javascript:;">迪士尼</a>
+				</div>
+				<div class="select3 fl sel select">
+					<a id="btn3" class="" href="javascript:;">蛋糕</a>
+				</div>
+				<div class="select4 fl sel select">
+					<a id="btn4" href="javascript:;">纸杯蛋糕</a>
+				</div>
+				<div class="select5 fl sel select">
+					<a id="btn5" href="javascript:;">更多&gt;&gt;</a>
+				</div>
+		   </div>
+			 <!-- 迪士尼开始 -->
+		  <div id="swiper-container1" class="swiper-container swiper-container-horizontal" style="height:auto;height:auto;">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide red-slide" style="width:100%;height:auto;">
+					<ul>
+						<li ng-repeat="item in data3">
+							<div class="product">
+								<div class="productPic fl" style="width:25%;clear:both;">
+									<img ng-src="{{item.img}}"
+									 alt="冰雪奇缘主题迷你纸杯蛋糕" style="width:100px;height:100px;">
+								</div>
+								<div class="productDescribe fr" style="width:65%;">
+									<a href="javascript:;" class="productName">{{item.name}}</a>
+									<br>
+									<span class="price">{{item.price|currency:"￥"}}</span>
+									<br>
+									<span class="des">{{item.describe}}</span>
+									<br>
+									<div class="sum">
+										<div class="plus fr" >
+											<a href="javascript:;"  ng-click="set(item.goodsId,true,3)">
+											<img src="img/product-set02-7911e6d209a9ced7052995ef7c9d99dc.png"
+												 class="more" ng-click="fly($index,3)">
+										    </a>
+										</div>
+
+										<div class="num fr">
+											{{item.num}}
+										</div>
+										<div class="less fr">
+											<img src="img/product-set03-00513e3868c07fa187e3ece86b6f82bf.png"
+												ng-click="set(item.goodsId,false,3)"
+											>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<!--迪士尼结束  -->
+				<!--蛋糕开始  -->
+				<div class="swiper-slide orange-slide" style="width:100%;height:auto;">
+					<ul>
+						<li ng-repeat="item in data5">
+							<div class="product">
+								<div class="productPic fl" style="width:25%;clear:both;">
+									<img ng-src="{{item.img}}"
+									 alt="冰雪奇缘主题迷你纸杯蛋糕" style="width:100px;height:100px;" >
+								</div>
+								<div class="productDescribe fr" style="width:65%;">
+									<a href="javascript:;" class="productName">{{item.name}}</a>
+									<br>
+									<span class="price">{{item.price|currency:"￥"}}</span>
+									<br>
+									<span class="des">{{item.describe}}</span>
+									<br>
+									<div class="sum">
+										<div class="plus fr"  ng-click="set(item.goodsId,true,5)">
+											<img src="img/product-set02-7911e6d209a9ced7052995ef7c9d99dc.png"
+												 ng-click="fly($index,3)">
+										</div>
+
+										<div class="num fr">
+											{{item.num}}
+										</div>
+										<div class="less fr" ng-click="set(item.goodsId,false,5)">
+											<img src="img/product-set03-00513e3868c07fa187e3ece86b6f82bf.png"
+											>
+										</div>
+									</div>
+									<!-- <button class="btn btn-dafault"
+									style="margin-left: 108px;">多种规格选择</button> -->
+								</div>
+							</div>
+						</li>
+					</ul>
+
+				</div>
+				<!-- 迪士尼结束 -->
+				<!-- 纸杯蛋糕开始 -->
+				<div class="swiper-slide green-slide swiper-slide-prev"
+				style="width:100%;height:auto;">
+						<ul>
+						<li ng-repeat="item in data4">
+							<div class="product">
+								<div class="productPic fl" style="width:25%;clear:both;">
+									<img ng-src="{{item.img}}"
+									 alt="冰雪奇缘主题迷你纸杯蛋糕" style="width:100px;height:100px;" >
+								</div>
+								<div class="productDescribe fr" style="width:65%;">
+									<a href="javascript:;" class="productName">{{item.name}}</a>
+									<br>
+									<span class="price">{{item.price|currency:"￥"}}</span>
+									<br>
+									<span class="des">{{item.describe}}</span>
+									<br>
+									<div class="sum">
+										<div class="plus fr" ng-click="fly($index,4)">
+											<img src="img/product-set02-7911e6d209a9ced7052995ef7c9d99dc.png"
+												ng-click="set(item.goodsId,true,4)">
+										</div>
+
+										<div class="num fr">
+											{{item.num}}
+										</div>
+										<div class="less fr">
+											<img src="img/product-set03-00513e3868c07fa187e3ece86b6f82bf.png"
+											ng-click="set(item.goodsId,false,4)">
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+
+				</div>
+				<div class="swiper-slide pink-slide swiper-slide-active" style="width: 100%;
+				border:1px solid gray;" id="more">
+				  <div class="seak">
+				  	    <input type="search" name="search" class="search" ng-model="str">
+				  	    <span>筛选</span>
+				  </div>
+
+				    <ul>
+				         <li ng-repeat="item in data6|filter:{shopname:str}">
+									 <a href="javascipt:;">{{item.shopname}}</a></li>
+
+				    </ul>
+				</div>
+			</div>
+		</div>
+				<div class="footer" style="margin-bottom:2.173913rem;">
+				<div class="telnum">
+					<span>
+						<img src="img/phone.png"
+							style="display:inline-block;
+							width:0.73913rem;height:0.73913rem;">
+						<p style="display:inline-block;line-height:1.2;">4008314159</p>
+					</span>
+				</div>
+				<div class="icp" style="text-align:center;">
+					<p>
+						Copyright 2010-2017 派悦坊，Ltd 京ICP备12046340
+					</p>
+				</div>
+			</div>
+		<nav class="navbar navbar-default navbar-fixed-bottom"
+		 id="navBottom">
+			  <div class="container">
+			       <div class="shopLogo fl">
+			       		<img src="img/cart.png" class="img-responsive fl" id="msg">
+			       		<span class="shopNum fl">{{cart.length}}</span>
+			       		<span class="shopPrice fl">{{allPrice|currency:"￥"}}</span>
+			       </div>
+			       <div class="goCart fr">
+			       		<a href="#/cart">	去结算</a>
+			       	</div>
+			  </div>
+		</nav>
+
+ </div>

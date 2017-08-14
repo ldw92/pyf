@@ -1,0 +1,131 @@
+<div direc></div>
+<div id="wrap">
+		<!--导航条开始-->
+			<nav class="navbar navbar-default navbar-fixed-top"
+				style="margin-bottom:0;">
+			  <div class="container con1">
+
+			    <div class="navbar-header" id="mobi-navbar-head">
+			    	<a href="#" class="fl">
+			    		<span>未登录</span>
+			    	</a>
+			      	<a class="navbar-brand fl" href="#" style="width: 68%;
+    margin: 0 2%;">
+			      		<img src="img/logo20170614-dbfa07700eda6a67fced248728a03f08.png" >
+			      		<p  class="mb-locale-icon " style="display:inline-block;">English</p>
+			      	</a>
+
+			      	<a href="#" class=" fr" style="width:14%;text-align:right;
+			      		margin-left:-4%;margin-top:4%;">
+			      		<img src="img/tel.png" style="max-height:31px;
+			      			width:31px;transform: rotateY(180deg);margin:0 auto;">
+			      	</a>
+			    </div>
+
+			  </div>
+			  <div class="nav-bottom clearfix" >
+					<ul>
+						<li>
+							<a href="#/">
+								<img src="img/zy.png">
+							</a>
+						</li>
+						<li>
+							<a href="#/goods">
+								<img src="img/lb.png">
+							</a>
+						</li>
+						<li>
+								<a href="#/login">
+									<img src="img/dl.png">
+								</a>
+						</li>
+						<li>
+							<a href="#/cart">
+								<img src="img/cart.png">
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		  <!--导航条结束-->
+		<!--购买商品列表开始-->
+		<table class="table table-bordered" style="margin-top:3.47826rem;">
+				<caption><h5>商品列表</h5></caption>
+				<tr ng-repeat="item in cart">
+					<td style="width:40%;">
+						<img ng-src="{{item.img}}" class="photo">
+						<br>
+						<span class="productName">{{item.name}}</span>
+					</td>
+					<td style="padding-top: 60px; text-align: left; padding-left: 8px;">
+
+							<p style="">&nbsp;&nbsp;{{item.price|currency:"￥"}}</p>
+
+						 <div style="display:table-row;font-size:0.782608rem;" >
+
+						 	<span class="less" style="display:table-cell;
+						 		vertical-align:middle;">
+						 		<img src="img/product-set03-00513e3868c07fa187e3ece86b6f82bf.png"
+									style="width:1.47826rem;height:1.47826rem;"
+									ng-click="cartSet(false,$index)">
+						 	</span>
+						 	<span style="display:table-cell;
+						 		vertical-align:middle;padding:5px;">{{item.num}}</span>
+						 	<span class="plus" style="display:table-cell;
+						 		vertical-align:middle;">
+						 		<img src="img/product-set02-7911e6d209a9ced7052995ef7c9d99dc.png"
+										style="width:1.47826rem;height:1.47826rem;"  class="more"
+										ng-click="cartSet(true,$index)">
+						 	</span>
+						 </div>
+					</td>
+					<td class="del" ng-click="item.num=0">
+						<img src="img/close.png">
+					</td>
+
+				</tr>
+				<tr ng-show="!cart.length" >
+					<td style="width:100%;height:8.695652rem;">
+						<h3 style="text-align:center">您的购物车没有商品!!!</h3>
+						<button class="btn btn-danger" style="margin-left: 3.043478rem;
+    					margin-right: 0.434782rem;
+							">
+							<a href="#/goods">继续购物</a>
+						</button>
+						<button class="btn btn-default">
+							<a href="#/">返回首页</a>
+						</button>
+					</td>
+				</tr>
+		</table>
+
+	  	<div class="footer">
+				<div class="telnum">
+					<span>
+						<img src="img/phone.png"
+							style="display:inline-block;
+							width:0.73913rem;height:0.73913rem;">
+						<p style="display:inline-block;line-height:1.2;">4008314159</p>
+					</span>
+				</div>
+				<div class="icp" style="text-align:center;">
+					<p>
+						Copyright 2010-2017 派悦坊，Ltd 京ICP备12046340
+					</p>
+				</div>
+			</div>
+			<nav class="navbar navbar-default navbar-fixed-bottom"
+		 id="navBottom">
+			  <div class="container">
+			       <div class="shopLogo fl">
+			       		<img src="img/cart.png" class="img-responsive fl">
+			       		<span class="shopNum fl">{{cart.length}}</span>
+			       		<span class="shopPrice fl">{{allPrice|currency:"￥"}}</span>
+			       </div>
+			       <div class="goCart fr">
+			       		<a href="#/cart">应付金额</a>
+			       	</div>
+			  </div>
+		</nav>
+	</div>

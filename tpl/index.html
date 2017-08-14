@@ -1,0 +1,159 @@
+<div id="wrap">
+		<!--导航条开始-->
+			<nav class="navbar navbar-default navbar-fixed-top"
+				style="margin-bottom:0;">
+			  <div class="container con1">
+
+			    <div class="navbar-header" id="mobi-navbar-head">
+			    	<a href="#" class="fl">
+			    		<span>未登录</span>
+			    	</a>
+			      	<a class="navbar-brand fl" href="/" style="width: 68%;
+    margin: 0 2%;">
+			      		<img src="img/logo20170614-dbfa07700eda6a67fced248728a03f08.png" >
+			      		<p  class="mb-locale-icon" style="display:inline-block;">English</p>
+			      	</a>
+
+			      	<a href="#" class=" fr" style="width:14%;text-align:right;
+			      		margin-left:-4%;margin-top:4%;">
+			      		<img src="img/tel.png" style="max-height:31px;
+			      			width:31px;transform: rotateY(180deg);margin:0 auto;">
+			      	</a>
+			    </div>
+
+			  </div>
+			  <div class="nav-bottom clearfix" >
+					<ul>
+						<li>
+							<a href="#">
+								<img src="img/zy.png">
+							</a>
+						</li>
+						<li>
+							<a href="#/goods">
+								<img src="img/lb.png">
+							</a>
+						</li>
+						<li>
+								<a href="#/login">
+									<img src="img/dl.png">
+								</a>
+						</li>
+						<li>
+							<a href="#/cart">
+								<img src="img/cart.png">
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+
+			<!--导航条结束-->
+			<!--轮播图开始-->
+			<div class="swiper-container clearfix" id="swiper-container" style="margin-top: 3.652173rem" >
+				<div class="swiper-wrapper ">
+				    <div class="swiper-slide">
+				    	<img src="./img/l1.jpg">
+
+				    </div>
+				    <div class="swiper-slide">
+				    	<img src="img/l2.jpg">
+				    </div>
+				    <div class="swiper-slide">
+				    	<img src="img/l3.jpg">
+				    </div>
+				</div>
+				    <div  class="swiper-pagination swiper-pagination-bullets" id="mobi-pagination">
+						<span class="swiper-pagination-bullet"></span>
+						<span class="swiper-pagination-bullet"></span>
+						<span class="swiper-pagination-bullet"></span>
+					</div>
+	  			<!--轮播结束-->
+	  		</div>
+				<!--产品列表开始-->
+	  		<div class="container con2">
+	  			<div class="row">
+	  				<div class="front-page-header" style="margin:0.869565rem auto;" >
+					  	<span class="icon-right">
+					  		<img src="img/arrow.png" style="width:0.347826rem;
+					  			height:0.347826rem;">
+					  	</span>
+					  		<b>
+					  			<a href="#" style="color:#4a8937;font-size:0.608695rem;">产品列表</a>
+					  		</b>
+				  	</div>
+	  			</div>
+	  			<div class="row">
+	  				<div class="col-xs-6" ng-repeat="item in data1">
+	  					<div class="productImg">
+	  						<a href="#">
+	  							<img ng-src="{{item.img}}" alt="" class="img-responsive" >
+
+	  						</a>
+	  					</div>
+	  					<div class="name" style="text-align:center;">
+	  						<a href="#" >
+	  							<h7 class="product-set-link">
+	  										{{item.name}}
+	  							</h7>
+	  						</a>
+
+	  					</div>
+	  				</div>
+	  			</div>
+	  		</div>
+
+	 			<!--产品列表结束-->
+	 			<!--新品推荐开始-->
+	 		<div class="container con3">
+	  			<div class="row">
+	  				<div class="front-page-header" style="margin:0.869565rem auto;">
+					  	<span class="icon-right">
+					  		<img src="img/arrow.png" style="width:0.347826rem;
+					  			height:0.347826rem;">
+					  	</span>
+					  		<b>
+					  			<a href="#" style="#4a8937;font-size:0.608695rem;">新品推荐</a>
+					  		</b>
+				  	</div>
+	  			</div>
+	  			<div class="row">
+	  				<div class="col-xs-6" ng-repeat="item in data2">
+	  					<div class="productImg">
+	  						<a href="#">
+	  							<img ng-src="{{item.img}}" alt="" class="img-responsive" >
+	  						</a>
+	  					</div>
+	  					<div class="name" style="text-align:center;>
+	  						<a href="#" >
+	  							<h7 class="product-set-link" ">
+	  								<!--榴莲纸杯蛋糕-->
+	  								{{item.name}}
+	  							</h7>
+	  						</a>
+	  						<br>
+	  						<span class="size-and-price">
+									{{item.size}}{{item.price}}
+							</span>
+	  					</div>
+	  				</div>
+	  		</div>
+			</div>
+			<!--end-->
+			<div class="footer">
+				<div class="telnum">
+					<span>
+						<img src="img/phone.png"
+							style="display:inline-block;
+							width:0.73913rem;height:0.73913rem;">
+						<p style="display:inline-block;line-height:1.2;">4008314159</p>
+					</span>
+				</div>
+				<div class="icp" style="text-align:center;">
+					<p>
+						Copyright 2010-2017 派悦坊，Ltd 京ICP备12046340
+					</p>
+				</div>
+			</div>
+	</div>
+	<div direc></div>
